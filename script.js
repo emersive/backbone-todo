@@ -10,10 +10,10 @@ var NewToDo = Backbone.Model.extend({
 var ToDoView = Backbone.View.extend({
   // el: '.todos-list',
 	tagName: 'li',
-	className: '.todos-list',
 	template: _.template($('#todo-template').html()),
 	render: function() {
-    this.$el.append(this.template(this.model.toJSON()));
+    var content = this.$el.append(this.template(this.model.toJSON()));
+    $("ul.todos-list").append(content);
   }
 });
 
