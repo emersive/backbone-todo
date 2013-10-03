@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=Backbone.Model.extend({defaults:{title:"",completed:!1}}),t=Backbone.View.extend({el:".todos-list",template:_.template($("#todo-template").html()),render:function(){this.$el.append(this.template(this.model.toJSON()))}}),n=new t({model:new e({title:$("#new-todo").val()})});n.render()});
