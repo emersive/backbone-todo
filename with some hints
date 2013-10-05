@@ -5,32 +5,29 @@ var NewToDo = Backbone.Model.extend({
 		title:'',
 		completed: false
 	},
-
-	toggle: function(){
-		var currentStatus = this.get('completed');
-		this.set({completed: !currentStatus});
+	toggle:function(){
+		if(this.get('completed'))  // we are using get becuase backbone uses this.
+		   this.set({completed.false});
+		else 
+		   this.set){ completed.true});
 	}
 });
 
 var ToDoView = Backbone.View.extend({
   // el: '.todos-list',
-   initialize: function() {
-   	this.listenTo(this.model, 'change', this.render);
-   	$("ul.todos-list").append(this.el);
-   },
-
 	tagName: 'li',
 	template: _.template($('#todo-template').html()),
 	render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
-  },
+    var content = this.$el.append(this.template(this.model.toJSON())),
 
-  events: {
-  	'click .toggle':function(){this.model.toggle();}
+    events: {
+    	'click input'
+    }
+
+
+    $("ul.todos-list").append(content);
   }
-
 });
-
 
 $('input#new-todo').on('keydown',function(e){
     if (e.which == 13) {

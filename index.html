@@ -23,7 +23,8 @@
 	<script type="text/javascript" src='script.js'></script>
 	<script type="text/template" id="todo-template">
   		<input type='checkbox' class='toggle' <% if(completed) { %>checked<%}%> />
-  		<label><%= title %></label>
+
+  		<label <% if(completed) { %> class='checked'<% }%> > <%= title %></label>
   		<button class="destroy"></button>
 	</script>
 </body>
